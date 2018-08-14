@@ -53,7 +53,7 @@ Note: A better approach is probably done with [Alfresco Bulk Export Module](http
 It downloads a site (-s) or a given repository folder (-f) via wget using webdav,
 
 ```
-$ ./downloadSite.sh
+$ ./downloadSite.sh -h
 Usage: ./downloadAlfrescoSite.sh [-s <site-shortname>] | [-f <folder>]
 ```
   
@@ -111,7 +111,7 @@ $ ./downloadSite.sh -s swsdp
 It gets metadata files (needed for a bulk import) of a previously downloaded site or folder.
 
 ```
-$ ./getAlfrescoMetadata.sh
+$ ./getAlfrescoMetadata.sh -h
 Usage: ./getAlfrescoMetadata.sh [-f <local-webdav-folder>]
 
 $ ./getAlfrescoMetadata.sh -f webdav
@@ -212,6 +212,9 @@ Note: A similar approach is done with [Alfresco Shell Tools](https://github.com/
 It provides a complete list of users of Alfresco repository. With -f option it adds first name, surname and user email.
 
 ```
+$ ./getPeople.sh -h
+Usage: ./getPeople.sh [-f]
+
 $ ./getPeople.sh
 guest
 admin
@@ -230,6 +233,9 @@ mjackson,Mike,Jackson,mjackson@example.com
 It gives the list of repository groups. With -f option you may obtain additionally info.
 
 ```
+$ ./getGroups.sh -h
+Usage: ./getGroups.sh [-f]
+
 $ ./getGroups.sh
 ALFRESCO_ADMINISTRATORS
 ALFRESCO_MODEL_ADMINISTRATORS
@@ -248,6 +254,9 @@ site_swsdp_SiteManager
 It gives a list with the shortnames of the sites. With -f option you additionally get the visibility and the title of the site.
 
 ```
+$ ./getSites.sh -h
+Usage: ./getSites.sh [-f]
+
 $ ./getSites.sh
 swsdp
 
@@ -260,7 +269,7 @@ swsdp,PUBLIC,Sample: Web Site Design Project
 It provides the list of users and roles of a given site (-s <shortname>).
 
 ```
-$ ./getSiteMemberships.sh
+$ ./getSiteMemberships.sh -h
 Usage: ./getAlfrescoSiteMemberships.sh [-f | -s <site>]
 
 $ ./getSiteMemberships.sh -s swsdp
@@ -274,7 +283,7 @@ With -f option you obtain the full list of users and roles for every site in Alf
 ### getUserGroups.sh
 
 ```
-./getUserGroups.sh
+./getUserGroups.sh -h
 Usage: ./getUserGroups.sh [-f] [-a user]
 ```
 
@@ -293,7 +302,7 @@ GROUP_SITE_ADMINISTRATORS
 
 It provides the users and groups of a given group (-g <group>). With -f option you obtain further details.
 ```
-$ ./getAuthority.sh
+$ ./getAuthority.sh -h
 Usage: ./getAuthority.sh [-f] [-g <group>]
 
 $ ./getAuthority.sh -g ALFRESCO_ADMINISTRATORS
