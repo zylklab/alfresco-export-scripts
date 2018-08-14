@@ -8,7 +8,7 @@
 usage() { echo "Usage: $0 [-f <local-webdav-folder>]" 1>&2; exit 1; }
 
 # Command line options
-while getopts "u:p:h:f:" o; do
+while getopts "u:p:he:f:" o; do
     case "${o}" in
         u)
             MYUSER=${OPTARG}
@@ -16,7 +16,7 @@ while getopts "u:p:h:f:" o; do
         p)
             MYPASS=${OPTARG}
             ;;
-        h)
+        e)
             URL=${OPTARG}
             ;;
         f)
@@ -25,6 +25,9 @@ while getopts "u:p:h:f:" o; do
         \?)
             echo "Invalid Option: -$OPTARG" 1>&2
             exit 1
+            ;;
+        h)
+            usage 
             ;;
         *)
             usage

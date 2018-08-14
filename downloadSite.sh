@@ -8,7 +8,7 @@
 usage() { echo "Usage: $0 [-s <site-shortname>] | [-f <folder>]" 1>&2; exit 1; }
 
 # Command line options
-while getopts "u:p:h:s:f:" o; do
+while getopts "u:p:he:s:f:" o; do
     case "${o}" in
         u)
             MYUSER=${OPTARG}
@@ -16,7 +16,7 @@ while getopts "u:p:h:s:f:" o; do
         p)
             MYPASS=${OPTARG}
             ;;
-        h)
+        e)
             ALFURL=${OPTARG}
             ;;
         s)
@@ -28,6 +28,9 @@ while getopts "u:p:h:s:f:" o; do
         \?)
             echo "Invalid Option: -$OPTARG" 1>&2
             exit 1
+            ;;
+        h)
+            usage 
             ;;
         *)
             usage
@@ -55,8 +58,8 @@ fi
 #SITE=${SITE:-swdps}
 
 if [ -n "${SITE}" ]; then
-  wget -r -nH -np -nv --cut-dirs=1 --user=$MYUSER --password=$MYPASS "$ALFURL/webdav/Sitios/$SITE/documentLibrary"
-  #wget -r -nH -np -nv --cut-dirs=1 --user=$MYUSER --password=$MYPASS "$ALFURL/webdav/Sites/$SITE/documentLibrary"
+  #wget -r -nH -np -nv --cut-dirs=1 --user=$MYUSER --password=$MYPASS "$ALFURL/webdav/Sitios/$SITE/documentLibrary"
+  wget -r -nH -np -nv --cut-dirs=1 --user=$MYUSER --password=$MYPASS "$ALFURL/webdav/Sites/$SITE/documentLibrary"
 else
   wget -r -nH -np -nv --cut-dirs=1 --user=$MYUSER --password=$MYPASS "$ALFURL/webdav/$FOLDER"
 fi

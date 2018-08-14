@@ -8,7 +8,7 @@
 usage() { echo "Usage: $0 [-f]" 1>&2; exit 1; }
 
 # Command line options
-while getopts "fu:p:h:s:" o; do
+while getopts "fu:p:he:s:" o; do
     case "${o}" in
         f)
             FULL=1
@@ -19,7 +19,7 @@ while getopts "fu:p:h:s:" o; do
         p)
             MYPASS=${OPTARG}
             ;;
-        h)
+        e)
             ALFURL=${OPTARG}
             ;;
         s)
@@ -29,9 +29,12 @@ while getopts "fu:p:h:s:" o; do
             echo "Invalid Option: -$OPTARG" 1>&2
             exit 1
             ;;
-        *)
+        h)
             usage
             ;;
+#        *)
+#            usage
+#            ;;
     esac
 done
 shift $((OPTIND-1))
