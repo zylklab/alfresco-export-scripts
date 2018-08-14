@@ -1,0 +1,8 @@
+<webscript>
+  <shortname>Export Bulk Metadata</shortname>
+  <description>Export Bulk Metadata from path</description>
+  <url>/net/zylk/export-bulk-metadata?path={path}</url>
+  <format default="text"></format>
+  <authentication>admin</authentication>
+  <transaction>required</transaction>
+</webscript>
