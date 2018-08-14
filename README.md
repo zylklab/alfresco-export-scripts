@@ -315,6 +315,7 @@ admin,Administrator,Administrator,USER
 ## Tested on
 
 * Alfresco Enterprise 4.1.1
+* Alfresco Enterprise 5.2.3
 * Alfresco Community 201707GA
 
 ## Author
