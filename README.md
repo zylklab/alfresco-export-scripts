@@ -3,10 +3,19 @@
 Alfresco shell scripts for extracting user, groups, sites, data and metadata information from Alfresco repository. For the extraction of metadata information it is needed to deploy a webscript in Alfresco Repository.
 
 ## Table of Contents
+
 - [Installation](#installation)
 - [Environment vars](#environment-vars)
 - [Bulk Export Scripts](#bulk-export-scripts)
+    - [downloadSite.sh](#downloadsitesh)
+    - [getMetadata.sh](#getmetadatash)
 - [Other helper Scripts](#other-helper-scripts)
+    - [getPeople.sh](#getpeoplesh)
+    - [getGroups.sh](#getgroupssh)
+    - [getSites.sh](#getsitessh)
+    - [getSiteMemberships.sh](#getsitemembershipssh)
+    - [getUserGroups.sh](#getusergroupssh)
+    - [getAuthority.sh](#getauthoritysh)
 - [Tested on](#tested-on)
 - [Author](#author)
 - [Links](#links)
