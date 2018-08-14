@@ -32,7 +32,7 @@ and then, to refresh Webscripts in /alfresco/service/index page.
 
 ## Environment vars
 
-Originally each shell script was provided with parameters in the command line (-h <alfrescourl> -u <user> -p <password>). For making easy the script execution we provide exportENVARS.sh that may be used according to your environment, every script invokes it.
+Originally each shell script was provided with parameters in the command line (-e <alfresco-endpoint> -u <alfresco-user> -p <alfresco-pass>). For making the script execution easier, we provide exportENVARS.sh script that may be used according to your environment, every script invokes it.
 ```
 $ cat exportENVARS.sh
 
@@ -46,7 +46,7 @@ export MYPASS=secret
 
 The following two scripts (downloadSite.sh and getMetadata.sh) are needed to extract Alfresco documents and their corresponding metadata from repository. For running getMetadata.sh properly we need to deploy export-bulk-metadata webscript in Alfresco Server.
 
-Note: A better approach is probably done with [Alfresco Bulk Export Module](https://github.com/vprince1/alfresco-bulk-export) but it only works from Alfresco 4.2 (JDK7 needed).
+Note: A better approach is probably done with [Alfresco Bulk Export Module](https://github.com/vprince1/alfresco-bulk-export) but it only works from Alfresco 4.2 and above (JDK7 needed).
 
 ### downloadSite.sh
 
