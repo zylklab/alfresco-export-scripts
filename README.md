@@ -2,6 +2,15 @@
 
 Alfresco shell scripts for extracting user, groups, sites, data and metadata information from Alfresco repository. For the extraction of metadata information it is needed to deploy a webscript in Alfresco Repository.
 
+## Table of Contents
+- [Installation](#installation)
+- [Environment vars](#environment-vars)
+- [Bulk Export Scripts](#bulk-export-scripts)
+- [Other helper Scripts](#other-helper-scripts)
+- [Tested on](#tested-on)
+- [Author](#author)
+- [Links](#links)
+
 ## Installation
 
 For running the shell scripts we need curl, wget, sed and jq shell utilities on the command line. For using metadata extraction, we need to deploy a webscript in /Data Dictionary/Webscripts/net/zylk
@@ -27,6 +36,8 @@ export MYPASS=secret
 ## Bulk Export Scripts
 
 The following two scripts (downloadSite.sh and getMetadata.sh) are needed to extract Alfresco documents and their corresponding metadata from repository. For running getMetadata.sh properly we need to deploy export-bulk-metadata webscript in Alfresco Server.
+
+Note: A better approach is probably done with [Alfresco Bulk Export Module](https://github.com/vprince1/alfresco-bulk-export) but it only works from Alfresco 4.2 (JDK7 needed).
 
 ### downloadSite.sh
 
@@ -183,6 +194,10 @@ generating the corresponding metadata.properties.xml foreach document and folder
 
 ## Other helper scripts
 
+This helper scripts are examples based on the blog post [Alfresco REST API examples using curl and jq](https://www.zylk.net/es/web-2-0/blog/-/blogs/using-jq-for-parsing-json-documents)
+ 
+Note: A similar approach is done with [Alfresco Shell Tools](https://github.com/ecm4u/alfresco-shell-tools).
+
 ### getPeople.sh
 
 It provides a complete list of users of Alfresco repository. With -f option it adds first name, surname and user email.
@@ -278,3 +293,18 @@ admin
 $ ./getAuthority.sh -g ALFRESCO_ADMINISTRATORS -f
 admin,Administrator,Administrator,USER
 ```
+
+## Tested on
+
+* Alfresco Enterprise 4.1.1
+* Alfresco Community 201707GA
+
+## Author
+
+- [Cesar Capillas](http://github.com/CesarCapillas)
+
+## Links
+
+- [Alfresco REST API examples using curl and jq](https://www.zylk.net/es/web-2-0/blog/-/blogs/using-jq-for-parsing-json-documents)
+- [Alfresco Bulk Export Module](https://github.com/vprince1/alfresco-bulk-export)
+- [Alfresco Shell Tools](https://github.com/ecm4u/alfresco-shell-tools)
