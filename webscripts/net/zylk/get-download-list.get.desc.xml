@@ -1,0 +1,8 @@
+<webscript>
+  <shortname>Get download list</shortname>
+  <description>Get download list</description>
+  <url>/net/zylk/get-download-list</url>
+  <format default="text"></format>
+  <authentication>admin</authentication>
+  <transaction>required</transaction>
+</webscript>

@@ -16,6 +16,9 @@ Alfresco shell scripts for extracting user, groups, sites, data and metadata inf
     - [getSiteMemberships.sh](#getsitemembershipssh)
     - [getUserGroups.sh](#getusergroupssh)
     - [getAuthority.sh](#getauthoritysh)
+- [More Download Scripts](#more-download-scripts)
+    - [downloadDoc.sh](#downloaddocsh)
+    - [downloadList.sh](#downloadlistsh)
 - [Tested on](#tested-on)
 - [Author](#author)
 - [Links](#links)
@@ -310,6 +313,36 @@ admin
 
 $ ./getAuthority.sh -g ALFRESCO_ADMINISTRATORS -f
 admin,Administrator,Administrator,USER
+```
+
+## More Download Scripts
+
+### downloadDoc.sh
+
+It provides a download script for a given Alfresco uuid and filename
+```
+$ ./downloadDoc.sh -h
+Usage: ./downloadDoc.sh [-d uuid] [-n name]
+```
+
+### downloadList.sh
+
+Download files selected from a webscript list resultset.
+```
+$ ./downloadList.sh
+```
+
+A second webscript is necessary to deploy in Alfresco in net/zylk:
+
+ * get-download-list.get.desc.xml
+ * get-download-list.get.js
+ * get-download-list.get.text.ftl
+
+The webscript obtains a list for the files tagged with "critical", but may be customized for any alfresco-fts query:
+
+```
+workspace://SpacesStore/5515d3e1-bb2a-42ed-833c-52802a367033;Sitios/swsdp/documentLibrary/Presentations;Project Objectives.ppt
+workspace://SpacesStore/99cb2789-f67e-41ff-bea9-505c138a6b23;Sitios/swsdp/documentLibrary/Presentations;Project Overview.ppt
 ```
 
 ## Tested on
