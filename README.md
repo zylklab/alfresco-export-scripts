@@ -332,7 +332,7 @@ Download files selected from a webscript list resultset.
 $ ./downloadList.sh
 ```
 
-A second webscript is necessary to deploy in Alfresco in net/zylk:
+A second webscript is necessary to deploy in Alfresco in /Data Dictionary/Webscripts/net/zylk:
 
  * get-download-list.get.desc.xml
  * get-download-list.get.js
@@ -350,6 +350,7 @@ workspace://SpacesStore/99cb2789-f67e-41ff-bea9-505c138a6b23;Sitios/swsdp/docume
 * Alfresco Enterprise 4.1.1
 * Alfresco Enterprise 5.2.3
 * Alfresco Community 201707GA
+* Alfresco Community 201911GA
 
 ## Author
 
