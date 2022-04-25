@@ -20,6 +20,7 @@ Alfresco shell scripts for extracting user, groups, sites, data and metadata inf
     - [downloadDoc.sh](#downloaddocsh)
     - [downloadList.sh](#downloadlistsh)
 - [Tested on](#tested-on)
+- [Know Limitations](#know-limitations)
 - [Author](#author)
 - [Links](#links)
 
@@ -352,6 +353,13 @@ workspace://SpacesStore/99cb2789-f67e-41ff-bea9-505c138a6b23;Sitios/swsdp/docume
 * Alfresco Community 201707GA
 * Alfresco Community 201911GA
 
+## Known Limitations
+    
+* No (local) permissions are possible to export within this collection of scripts. Only site roles or group information is provided. 
+* Not able to download versions of documents via downloadSite.sh script.
+* Not able to download documents via webdav when Kerberos or NTML SSO is enabled. 
+* Use -k option in curl commands or --no-check-certificate in wget scripts, in case of dealing with self-signed SSL certificates 
+       
 ## Author
 
 - [Cesar Capillas](http://github.com/CesarCapillas)
