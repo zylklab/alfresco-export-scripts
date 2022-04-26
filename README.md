@@ -115,10 +115,10 @@ $ ./downloadSite.sh -s swsdp
 It gets metadata files (needed for a bulk import) of a previously downloaded site or folder.
 
 ```
-$ ./getAlfrescoMetadata.sh -h
-Usage: ./getAlfrescoMetadata.sh [-f <local-webdav-folder>]
+$ ./getMetadata.sh -h
+Usage: ./getMetadata.sh [-f <local-webdav-folder>]
 
-$ ./getAlfrescoMetadata.sh -f webdav
+$ ./getMetadata.sh -f webdav
 ```
 
 generating the corresponding metadata.properties.xml foreach document and folder.
