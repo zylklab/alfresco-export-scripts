@@ -26,7 +26,7 @@ Alfresco shell scripts for extracting user, groups, sites, data and metadata inf
 
 ## Installation
 
-For running the shell scripts we need curl, wget, sed and jq shell utilities on the command line. For using metadata extraction, we need to deploy a webscript in /Data Dictionary/Webscripts/net/zylk
+For running the shell scripts we need curl, wget, sed and jq shell utilities on the command line. For using metadata extraction, we need to deploy a webscript in /Data Dictionary/Web Scripts/net/zylk
 
  * export-bulk-metadata.get.desc.xml
  * export-bulk-metadata.get.js
@@ -333,13 +333,13 @@ Download files selected from a webscript list resultset.
 $ ./downloadList.sh
 ```
 
-A second webscript is necessary to deploy in Alfresco in /Data Dictionary/Webscripts/net/zylk:
+A second webscript is necessary to deploy in Alfresco in /Data Dictionary/Web Scripts/net/zylk:
 
  * get-download-list.get.desc.xml
  * get-download-list.get.js
  * get-download-list.get.text.ftl
 
-The webscript obtains a list for the files tagged with "critical", but may be customized for any alfresco-fts query:
+The webscript obtains a list of files flagged with "critical" tag, but may be customized for any alfresco-fts query:
 
 ```
 workspace://SpacesStore/5515d3e1-bb2a-42ed-833c-52802a367033;Sitios/swsdp/documentLibrary/Presentations;Project Objectives.ppt
