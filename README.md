@@ -20,7 +20,7 @@ Alfresco shell scripts for extracting user, groups, sites, data and metadata inf
     - [downloadDoc.sh](#downloaddocsh)
     - [downloadList.sh](#downloadlistsh)
 - [Tested on](#tested-on)
-- [Know Limitations](#know-limitations)
+- [Known Limitations](#known-limitations)
 - [Author](#author)
 - [Links](#links)
 
