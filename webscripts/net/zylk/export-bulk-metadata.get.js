@@ -1,3 +1,22 @@
+// Map xml chars
+var XML_CHAR_MAP = {
+  '<': '&lt;',
+  '>': '&gt;',
+  '&': '&amp;',
+  '"': '&quot;',
+  "'": '&apos;'
+};
+
+// escape XML
+function escapeXml(s) {
+  if (s) {
+    return s.replace(/[<>&"']/g, function (ch) {
+        return XML_CHAR_MAP[ch];
+    });
+  }
+  return '';
+}
+
 // Format 0\d
 function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
@@ -34,9 +53,9 @@ function getdoc_properties(n) {
     exp = exp + '<properties>\n';
     exp = exp + '  <entry key="type">' + n.typeShort + '</entry>\n';
     exp = exp + '  <entry key="aspects">' + aspectShort(n.aspects.toString()) + '</entry>\n';
-    exp = exp + '  <entry key="path">' + n.displayPath + '</entry>\n';
-    exp = exp + '  <entry key="cm:name">' + n.properties["cm:name"] + '</entry>\n';
-    exp = exp + '  <entry key="cm:title">' + n.properties["cm:title"] + '</entry>\n';
+    exp = exp + '  <entry key="path">' + escapeXml(new String(n.displayPath)) + '</entry>\n';
+    exp = exp + '  <entry key="cm:name">' + escapeXml(n.properties["cm:name"]) + '</entry>\n';
+    exp = exp + '  <entry key="cm:title">' + escapeXml(n.properties["cm:title"]) + '</entry>\n';
     exp = exp + '  <entry key="cm:description">' + n.properties["cm:description"] + '</entry>\n';
     exp = exp + '  <entry key="cm:creator">' + n.properties["cm:creator"] + '</entry>\n';
     exp = exp + '  <entry key="cm:modifier">' + n.properties["cm:modifier"] + '</entry>\n';
