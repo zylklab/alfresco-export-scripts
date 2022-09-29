@@ -13,7 +13,7 @@ function isodate(d) {
 function aspectShort(asp){
     var asp = asp.replace(/{http:\/\/www.alfresco.org\/model\/content\/1.0}/g,"cm:");
     asp = asp.replace(/{http:\/\/www.alfresco.org\/model\/system\/1.0}/g,"sys:");
-    asp = asp.replace(/{http:\/\/www.alfresco.org\/model\/forum\/1.0}/g,"fr:");
+    asp = asp.replace(/{http:\/\/www.alfresco.org\/model\/forum\/1.0}/g,"fm:");
     asp = asp.replace(/{http:\/\/www.alfresco.org\/model\/site\/1.0}/g,"st:");
     asp = asp.replace(/{http:\/\/www.alfresco.org\/model\/rendition\/1.0}/g,"rn:");
     asp = asp.replace(/{http:\/\/www.alfresco.org\/model\/exif\/1.0}/g,"exif:");
