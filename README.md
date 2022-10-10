@@ -359,7 +359,14 @@ workspace://SpacesStore/99cb2789-f67e-41ff-bea9-505c138a6b23;Sitios/swsdp/docume
 * Not able to download versions of documents via downloadSite.sh script.
 * Not able to download documents via webdav when Kerberos or NTML SSO is enabled. 
 * Use -k option in curl commands or --no-check-certificate in wget scripts, in case of dealing with self-signed SSL certificates 
-       
+   
+## History
+
+* 202209 - Maxlevel option for crawling and several encoding adjustments. Thanks to [Romain Brochot](https://github.com/romainbrochot).
+* 202206 - Fixing encoding functions for solving special character path issues
+* 202201 - Added download tagged doc list feature via webscript
+* 201808 - Initial release
+ 
 ## Author
 
 - [Cesar Capillas](http://github.com/CesarCapillas)
