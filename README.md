@@ -20,9 +20,9 @@ Alfresco shell scripts for extracting user, groups, sites, data and metadata inf
     - [downloadDoc.sh](#downloaddocsh)
     - [downloadList.sh](#downloadlistsh)
 - [Permission Scripts](#permission-scripts)
-    - [getfolders.sh](#getfolderssh)
-    - [getperms.sh](#getpermssh)
-    - [setperms.sh](#setpermssh)
+    - [getFolders.sh](#getfolderssh)
+    - [getPerms.sh](#getpermssh)
+    - [setPerms.sh](#setpermssh)
 - [Tested on](#tested-on)
 - [Known Limitations](#known-limitations)
 - [History](#history)
@@ -438,7 +438,7 @@ $ ./setPerms.sh <permissions-file>
    
 ## History
 
-* 202210 - Permission webscripts
+* 202212 - Permissions scripts and webscripts.
 * 202209 - Maxlevel option for crawling and several encoding adjustments. Thanks to [Romain Brochot](https://github.com/romainbrochot).
 * 202206 - Fixing encoding functions for solving special character path issues
 * 202201 - Added download tagged doc list feature via webscript
