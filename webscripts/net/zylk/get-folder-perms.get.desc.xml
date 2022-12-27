@@ -1,0 +1,10 @@
+<webscript>
+   <shortname>Get Folder Permissions Template</shortname>
+   <description>Get Folder Permissions Template</description>
+   <url>/net/zylk/get-folder-permissions?proj={proj}&amp;user={user}&amp;role={role}</url>
+   <format default="text">argument</format>
+   <family>Zylk</family>
+   <authentication>user</authentication>
+   <transaction>required</transaction>
+</webscript>
+

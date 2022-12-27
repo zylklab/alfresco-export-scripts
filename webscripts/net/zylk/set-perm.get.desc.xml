@@ -1,0 +1,9 @@
+<webscript>
+   <shortname>Set Permission</shortname>
+   <description>Set Permission</description>
+   <url>/net/zylk/set-perm?noderef={noderef}&amp;user={user}&amp;role={role}</url>
+   <format default="text">argument</format>
+   <family>Zylk</family>
+   <authentication>user</authentication>
+   <transaction>required</transaction>
+</webscript>

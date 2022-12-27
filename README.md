@@ -19,6 +19,10 @@ Alfresco shell scripts for extracting user, groups, sites, data and metadata inf
 - [More Download Scripts](#more-download-scripts)
     - [downloadDoc.sh](#downloaddocsh)
     - [downloadList.sh](#downloadlistsh)
+- [Permission Scripts](#permission-scripts)
+    - [getfolders.sh](#getfolderssh)
+    - [getperms.sh](#getpermssh)
+    - [setperms.sh](#setpermssh)
 - [Tested on](#tested-on)
 - [Known Limitations](#known-limitations)
 - [History](#history)
@@ -346,6 +350,78 @@ The webscript obtains a list of files flagged with "critical" tag, but may be cu
 workspace://SpacesStore/5515d3e1-bb2a-42ed-833c-52802a367033;Sitios/swsdp/documentLibrary/Presentations;Project Objectives.ppt
 workspace://SpacesStore/99cb2789-f67e-41ff-bea9-505c138a6b23;Sitios/swsdp/documentLibrary/Presentations;Project Overview.ppt
 ```
+## Permission Scripts
+
+### getPerms.sh
+
+It provides the local permission template under a rootpath (given by a noderef). If no user is given it provides a full list of local permissions.
+
+```
+$ ./getPerms.sh <noderef> [user]
+
+$ ./getPerms.sh workspace://SpacesStore/8f2105b4-daaf-4874-9e8a-2152569d109b
+
+   /Company Home/Sites/swsdp/documentLibrary/Budget Files;mjackson;SiteManager;workspace://SpacesStore/8ab12916-4897-47fb-94eb-1ab699822ecb
+   /Company Home/Sites/swsdp/documentLibrary/Budget Files;abeecher;SiteCollaborator;workspace://SpacesStore/8ab12916-4897-47fb-94eb-1ab699822ecb
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files;mjackson;SiteManager;workspace://SpacesStore/8bb36efb-c26d-4d2b-9199-ab6922f53c28
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files;abeecher;SiteCollaborator;workspace://SpacesStore/8bb36efb-c26d-4d2b-9199-ab6922f53c28
+   /Company Home/Sites/swsdp/documentLibrary/Meeting Notes;mjackson;SiteManager;workspace://SpacesStore/a211774d-ba6d-4a35-b97f-dacfaac7bde3
+   /Company Home/Sites/swsdp/documentLibrary/Presentations;abeecher;SiteCollaborator;workspace://SpacesStore/38745585-816a-403f-8005-0a55c0aec813
+```
+
+The aim of this script is to obtain a template of permissions for a new user, with respect a given user. For example, I want to give user johndoe the same exact permissions of abeecher. With the following output (changing abeecher by johndoe) I would generate the input for set-perms.sh script.
+
+```
+$ ./getPerms.sh workspace://SpacesStore/8f2105b4-daaf-4874-9e8a-2152569d109b abeecher
+   /Company Home/Sites/swsdp/documentLibrary/Budget Files;abeecher;SiteCollaborator;workspace://SpacesStore/8ab12916-4897-47fb-94eb-1ab699822ecb
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files;abeecher;SiteCollaborator;workspace://SpacesStore/8bb36efb-c26d-4d2b-9199-ab6922f53c28
+   /Company Home/Sites/swsdp/documentLibrary/Presentations;abeecher;SiteCollaborator;workspace://SpacesStore/38745585-816a-403f-8005-0a55c0aec813
+```
+
+This script may be useful for complex (local) permissions maps.
+
+### getFolders.sh
+
+It provides a folder permission template under a rootpath (given by a noderef). It lists a complete folder list under a given node, normally when permissions are set. 
+
+```
+$ ./getFolders.sh <noderef> [user] [role]
+
+$ ./getFolders.sh workspace://SpacesStore/8f2105b4-daaf-4874-9e8a-2152569d109b
+
+   /Company Home/Sites/swsdp/documentLibrary/Budget Files;johndoe;SiteManager;workspace://SpacesStore/8ab12916-4897-47fb-94eb-1ab699822ecb
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files;johndoe;SiteManager;workspace://SpacesStore/8bb36efb-c26d-4d2b-9199-ab6922f53c28
+   /Company Home/Sites/swsdp/documentLibrary/Meeting Notes;johndoe;SiteManager;workspace://SpacesStore/a211774d-ba6d-4a35-b97f-dacfaac7bde3
+   /Company Home/Sites/swsdp/documentLibrary/Presentations;johndoe;SiteManager;workspace://SpacesStore/38745585-816a-403f-8005-0a55c0aec813
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files/Contracts;johndoe;SiteManager;workspace://SpacesStore/e0856836-ed5e-4eee-b8e5-bd7e8fb9384c
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files/Images;johndoe;SiteManager;workspace://SpacesStore/880a0f47-31b1-4101-b20b-4d325e54e8b1
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files/Logo Files;johndoe;SiteManager;workspace://SpacesStore/b1a98357-4f7a-470d-bf4c-327501158689
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files/Mock-Ups;johndoe;SiteManager;workspace://SpacesStore/610771be-4d82-479a-a2d7-796adf498084
+   /Company Home/Sites/swsdp/documentLibrary/Agency Files/Video Files;johndoe;SiteManager;workspace://SpacesStore/1d26e465-dea3-42f3-b415-faa8364b9692
+   /Company Home/Sites/swsdp/documentLibrary/Budget Files/Invoices;johndoe;SiteManager;workspace://SpacesStore/d56afdc3-0174-4f8c-bce8-977cafd712ab
+```
+
+If a user / role are not provided, johndoe and SiteManager were used.
+
+### setPerms.sh
+
+It sets local permissions from a permission template file. The permission file template is the one given by getPerms.sh or getFolders.sh scripts
+
+```
+$ ./setPerms.sh <permissions-file>
+```
+
+3 new webscripts are needed to deploy in Alfresco in /Data Dictionary/Web Scripts/net/zylk:
+
+ * get-folder-perms.get.desc.xml
+ * get-folder-perms.get.js
+ * get-folder-perms.get.text.ftl
+ * get-perms.get.desc.xml
+ * get-perms.get.js
+ * get-perms.get.text.ftl
+ * set-perm.get.desc.xml
+ * set-perm.get.js
+ * set-perm.get.text.ftl
 
 ## Tested on
 
@@ -356,13 +432,13 @@ workspace://SpacesStore/99cb2789-f67e-41ff-bea9-505c138a6b23;Sitios/swsdp/docume
 
 ## Known Limitations
     
-* No (local) permissions are possible to export within this collection of scripts. Only site roles or group information is provided. 
 * Not able to download versions of documents via downloadSite.sh script.
 * Not able to download documents via webdav when Kerberos or NTML SSO is enabled. 
 * Use -k option in curl commands or --no-check-certificate in wget scripts, in case of dealing with self-signed SSL certificates 
    
 ## History
 
+* 202210 - Permission webscripts
 * 202209 - Maxlevel option for crawling and several encoding adjustments. Thanks to [Romain Brochot](https://github.com/romainbrochot).
 * 202206 - Fixing encoding functions for solving special character path issues
 * 202201 - Added download tagged doc list feature via webscript

@@ -1,0 +1,10 @@
+<webscript>
+   <shortname>Get Permissions Template</shortname>
+   <description>Get Permissions Template</description>
+   <url>/net/zylk/get-permissions?proj={proj}</url>
+   <format default="text">argument</format>
+   <family>Zylk</family>
+   <authentication>user</authentication>
+   <transaction>required</transaction>
+</webscript>
+

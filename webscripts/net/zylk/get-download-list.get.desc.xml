@@ -3,6 +3,7 @@
   <description>Get download list</description>
   <url>/net/zylk/get-download-list</url>
   <format default="text"></format>
+  <family>Zylk</family>
   <authentication>admin</authentication>
   <transaction>required</transaction>
 </webscript>
